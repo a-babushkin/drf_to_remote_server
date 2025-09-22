@@ -21,6 +21,8 @@ stripe = "^12.4.0"
 celery = "^5.5.3"
 redis = "^6.4.0"
 django-celery-beat = "^2.8.1"
+gunicorn = "*"
+django-redis = "*"
 
 [tool.poetry.group.lint.dependencies]
 isort = "^6.0.1"
