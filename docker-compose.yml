@@ -31,7 +31,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 260439
-      POSTGRES_DB: db
+      POSTGRES_DB: drf
     volumes:
       - postgres_data:/var/lib/postgresql/data
     env_file:
