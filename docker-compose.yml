@@ -28,10 +28,10 @@ services:
 
   db:
     image: postgres:17
-#    environment:
-#      POSTGRES_USER: postgres
-#      POSTGRES_PASSWORD: 260439
-#      POSTGRES_DB: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 260439
+      POSTGRES_DB: db
     volumes:
       - postgres_data:/var/lib/postgresql/data
     env_file:
