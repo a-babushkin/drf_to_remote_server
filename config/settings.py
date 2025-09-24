@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 STRIPE_API_KEY = os.getenv("STRIPE_API_KEY")
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -114,8 +114,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [ '/app/static']
+STATIC_URL = "static/"
+# STATICFILES_DIRS = [ '/app/static']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
