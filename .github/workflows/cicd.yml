@@ -155,4 +155,3 @@ jobs:
         # (По необходимости) выполняем миграции внутри контейнера web
         sudo docker-compose exec web poetry run python manage.py migrate
         EOF
-
