@@ -79,9 +79,12 @@ jobs:
     - name: Run migrations
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        DATABASE_URL: postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres:5432/${{ secrets.POSTGRES_DB }}
       run: poetry run python manage.py migrate
 
     - name: Run tests
+      env:
+        DATABASE_URL: postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres:5432/${{ secrets.POSTGRES_DB }}
       run: poetry run python manage.py test
 
   build:
