@@ -144,8 +144,15 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
         sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:${{ github.sha }}
-        sudo docker stop myapp || true
-        sudo docker rm myapp || true
-        sudo docker run -d --name myapp -p 80:8000  ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:${{ github.sha }}
+        cd /home/babushkin/dcd
+        
+        # Подтягиваем новый образ приложения
+        sudo docker-compose pull web
+      
+        # Поднимаем контейнеры (перезапускает при изменениях)
+        sudo docker-compose up -d
+      
+        # (По необходимости) выполняем миграции внутри контейнера web
+        sudo docker-compose exec web poetry run python manage.py migrate
         EOF
 
