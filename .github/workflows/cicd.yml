@@ -41,9 +41,9 @@ jobs:
       postgres:
         image: postgres:17
         env:
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: 'drf'
+          POSTGRES_USER: 'postgres'
+          POSTGRES_PASSWORD: '260439'
         ports:
           - 5432:5432
         options: >-
@@ -95,9 +95,9 @@ jobs:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         # Подклюяение базы
 #        DATABASE_URL: postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres:5432/${{ secrets.POSTGRES_DB }}
-        DB_NAME: ${{ secrets.POSTGRES_DB }}'drf'
-        DB_USER: ${{ secrets.POSTGRES_USER }}
-        DB_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        DB_NAME: 'drf'
+        DB_USER: 'postgres'
+        DB_PASSWORD: '260439'
         DB_HOST: localhost
 
       run: poetry run python manage.py migrate
@@ -106,9 +106,9 @@ jobs:
       env:
         # Подклюяение базы
 #        DATABASE_URL: postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres:5432/${{ secrets.POSTGRES_DB }}
-        DB_NAME: ${{ secrets.POSTGRES_DB }}'drf'
-        DB_USER: ${{ secrets.POSTGRES_USER }}
-        DB_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        DB_NAME: 'drf'
+        DB_USER: 'postgres'
+        DB_PASSWORD: '260439'
         DB_HOST: localhost
       run: poetry run python manage.py test
 
