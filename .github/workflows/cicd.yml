@@ -104,6 +104,7 @@ jobs:
 
     - name: Run tests
       env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
         # Подклюяение базы
 #        DATABASE_URL: postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres:5432/${{ secrets.POSTGRES_DB }}
         DB_NAME: 'drf'
