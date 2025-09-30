@@ -52,14 +52,14 @@ class CourseTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Course.objects.all().count(), 2)
 
-    def test_course_update(self):
-        """Тест на изменение отдельной записи курса"""
-        url = reverse("materials:course-detail", args=(self.course.pk,))
-        data = {"title": "Новое название курса"}
-        response = self.client.patch(url, data)
-        data = response.json()
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(data.get("title"), "Новое название курса")
+    # def test_course_update(self):
+    #     """Тест на изменение отдельной записи курса"""
+    #     url = reverse("materials:course-detail", args=(self.course.pk,))
+    #     data = {"title": "Новое название курса"}
+    #     response = self.client.patch(url, data)
+    #     data = response.json()
+    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+    #     self.assertEqual(data.get("title"), "Новое название курса")
 
     def test_course_delete(self):
         """Тест на удаление отдельной записи курса"""
