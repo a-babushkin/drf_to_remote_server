@@ -76,6 +76,20 @@ jobs:
       run: |
         poetry install
 
+    - name: Wait for PostgreSQL to be ready
+      run: |
+        for i in {1..30}; do
+          pg_isready -h postgres -p 5432 -U ${{ secrets.POSTGRES_USER }}
+          if [ $? -eq 0 ]; then
+            echo "PostgreSQL is ready"
+            break
+          fi
+          echo "Waiting for PostgreSQL..."
+          sleep 1
+        done
+      env:
+        PGPASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+
     - name: Run migrations
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
