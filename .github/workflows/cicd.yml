@@ -67,6 +67,7 @@ jobs:
     - name: Run tests
       run: poetry run python manage.py test
 
+
   build:
     runs-on: ubuntu-latest
     needs: test
