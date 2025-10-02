@@ -149,9 +149,9 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+          cd /home/babushkin/dcd
           git init
           git remote add origin https://github.com/a-babushkin/drf_to_remote_server.git
-          cd /home/babushkin/dcd
           git pull origin feature/Remote-server
           sudo docker-compose down
           sudo docker-compose pull web
