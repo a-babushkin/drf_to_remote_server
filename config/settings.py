@@ -115,6 +115,8 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
+# STATICFILES_DIRS = [ '/app/static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -143,8 +145,19 @@ CELERY_BEAT_SCHEDULE = {
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = os.getenv("EMAIL_HOST")
 EMAIL_PORT = os.getenv("EMAIL_PORT")
-EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS").lower() in ["true", "yes"]
-EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL").lower() in ["true", "yes"]
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "false").lower() in ["true", "yes"]
+EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", "false").lower() in ["true", "yes"]
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': os.getenv('REDIS_LOCATION'),
+        }
+    }
+
+CSRF_TRUSTED_ORIGINS = ["http://158.160.7.166"]

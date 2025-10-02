@@ -1,11 +1,11 @@
-[project]
+[tool.poetry]
 name = "drf"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "a-babushkin",email = "a.babushkin42@gmail.com"}
-]
+authors = ["a-babushkin <a.babushkin42@gmail.com>"]
 readme = "README.md"
+package-mode = false
+
 [tool.poetry.dependencies]
 python = ">=3.13,<4.0"
 django = "^5.2.4"
@@ -21,6 +21,8 @@ stripe = "^12.4.0"
 celery = "^5.5.3"
 redis = "^6.4.0"
 django-celery-beat = "^2.8.1"
+gunicorn = "*"
+django-redis = "*"
 
 [tool.poetry.group.lint.dependencies]
 isort = "^6.0.1"

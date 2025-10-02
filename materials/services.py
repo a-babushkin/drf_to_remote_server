@@ -1,9 +1,8 @@
 import logging
 import os
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 
 from django.core.mail import send_mail
-# from django.utils import timezone
 
 from config import settings
 from materials.models import Course, Subscription
