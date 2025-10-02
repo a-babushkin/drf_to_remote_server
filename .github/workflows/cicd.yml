@@ -149,10 +149,8 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+         
           cd /home/babushkin/dcd
-          cp /home/babushkin/dcd/rezerv/docker-compose.yml /home/babushkin/dcd
-          cp /home/babushkin/dcd/rezerv/nginx.conf /home/babushkin/dcd
+          git pull 
           docker-compose down
           docker-compose up -d --build
-          docker-compose exec web poetry add celery django-celery-beat
-          docker-compose exec web poetry run python manage.py migrate
