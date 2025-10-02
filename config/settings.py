@@ -160,4 +160,4 @@ if CACHE_ENABLED:
         }
     }
 
-CSRF_TRUSTED_ORIGINS = ["http://158.160.1.93"]
+CSRF_TRUSTED_ORIGINS = ["http://158.160.7.166"]
