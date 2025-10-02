@@ -150,10 +150,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd /home/babushkin/dcd
-          git init
-          git remote set-url origin https://github.com/a-babushkin/drf_to_remote_server.git
-          git fetch origin
-          git checkout feature/Remote-server
           cp /home/babushkin/dcd/rezerv/docker-compose.yml /home/babushkin/dcd
           cp /home/babushkin/dcd/rezerv/nginx.conf /home/babushkin/dcd
           docker-compose down
