@@ -14,7 +14,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 COPY pyproject.toml poetry.lock ./
 
 RUN poetry install --no-root
-RUN pip install gunicorn
+RUN poetry add gunicorn celery django-celery-beat
 
 COPY . .
 
