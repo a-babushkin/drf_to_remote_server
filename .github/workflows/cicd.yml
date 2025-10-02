@@ -153,7 +153,6 @@ jobs:
           cp /home/babushkin/dcd/rezerv/docker-compose.yml /home/babushkin/dcd
           cp /home/babushkin/dcd/rezerv/nginx.conf /home/babushkin/dcd
           docker-compose down
-          docker-compose exec web poetry add celery django-celery-beat
           docker-compose up -d --build
           docker-compose exec web poetry add celery django-celery-beat
           docker-compose exec web poetry run python manage.py migrate
