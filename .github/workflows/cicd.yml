@@ -149,6 +149,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+          git init
           cd /home/babushkin/dcd
           git pull origin feature/Remote-server
           sudo docker-compose down
