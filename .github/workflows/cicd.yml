@@ -157,3 +157,4 @@ jobs:
           sudo docker-compose pull web
           sudo docker-compose up -d --build
           sudo docker-compose exec web poetry run python manage.py migrate
+
